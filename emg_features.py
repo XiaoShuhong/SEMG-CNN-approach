@@ -2,10 +2,11 @@
 import numpy as np
 import pywt
 import operator
-from nitime import algorithms as alg
+# from nitime import algorithms as alg
 from scipy import stats
 from numpy import linalg as LA
-from pyhht import pyhht
+# from pyhht import pyhht
+import pyhht
 from scipy import signal as sig
 from scipy import linalg
 # import operator
@@ -927,8 +928,9 @@ def emg_mrwa(signal, wavelet_name='db1'):
     return mrwa
 
 def emg_mrwa2d(signal):
+    
 #     coeffs = emg_dwt2d(signal)
-     coeffs = pywt.wavedec2(signal, wavelet='db1')
+    coeffs = pywt.wavedec2(signal, wavelet='db1')
 #     coeffs = np.array(coeffs)
     mrwa = []
     mrwa.append(LA.norm(coeffs[0]))
