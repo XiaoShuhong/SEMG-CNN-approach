@@ -2,11 +2,12 @@
 import numpy as np
 import pywt
 import operator
-# from nitime import algorithms as alg
+# from nitime import nitime
+from nitime import algorithms as alg
 from scipy import stats
 from numpy import linalg as LA
-# from pyhht import pyhht
-import pyhht
+from pyhht import pyhht
+
 from scipy import signal as sig
 from scipy import linalg
 # import operator
@@ -405,9 +406,7 @@ def emg_spectrogram_db1_seg10overlap9_nolowpass(signal):
 
 def emg_fft(signal, fs):
     fft_size = signal.shape[0]
-
-    freqs = np.linspace(0, fs/2, fft_size/2+1)
-
+    freqs=np.linspace(0,fs//2,fft_size//2+1)
     xf = np.fft.rfft(signal)/fft_size
     cc = np.clip(np.abs(xf), 1e-20, 1e100)
     # pl.scatter(freqs, cc)
